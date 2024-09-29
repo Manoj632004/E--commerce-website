@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./static",
+    "rootDir": "./static",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["static/**/*"]
+}
