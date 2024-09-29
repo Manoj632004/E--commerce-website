@@ -14,6 +14,24 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(150), nullable=False)
+from flask import jsonify
+
+# Fetch products API
+@app.route('/api/products')
+def api_products():
+    products = Product.query.all()
+    return jsonify([{ 'id': p.id, 'name': p.name, 'price': p.price, 'description': p.description } for p in products])
+
+# Add to cart API
+@app.route('/api/cart', methods=['POST'])
+@login_required
+def api_add_to_cart():
+    data = request.get_json()
+    product_id = data.get('productId')
+    # Here you should handle the addition of the product to the user's cart
+    # This can involve saving it to the session or a database
+    return jsonify({'message': 'Product added to cart'}), 200
+
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
