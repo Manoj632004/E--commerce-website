@@ -6,3 +6,9 @@ Python, javascript, typesccript, flask, react, mysql<br/>
 
 install dependencies:<br/>
 pip install -r requirements.txt<br/>
+npm install -g typescript<br/>
+
+compile typescript:<br/>
+tsc <br/>
+run flask app:<br/>
+python app.py
